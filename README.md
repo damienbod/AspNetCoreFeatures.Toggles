@@ -1,5 +1,7 @@
 # AspNetCoreFeatures.Toggles
 
+[![.NET](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml)
+
 ## Links
 
 https://dev.to/karthikchintala/the-comprehensive-guide-to-feature-management-in-aspnet-core-23d1
