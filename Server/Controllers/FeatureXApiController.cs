@@ -1,4 +1,5 @@
-﻿using AspNetCoreFeatures.Toggles.Shared;
+﻿using AspNetCoreFeatures.Toggles.Server.Services;
+using AspNetCoreFeatures.Toggles.Shared;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,12 @@ namespace AspNetCoreFeatures.Toggles.Server.Controllers;
 public class FeatureXApiController : ControllerBase
 {
     private IFeatureManager _featureManager;
+    private readonly FeatureXService _featureXService;
 
-    public FeatureXApiController(IFeatureManager featureManager)
+    public FeatureXApiController(IFeatureManager featureManager, FeatureXService featureXService)
     {
         _featureManager = featureManager;
+        _featureXService = featureXService;
     }
 
     [HttpGet]
@@ -26,7 +29,7 @@ public class FeatureXApiController : ControllerBase
 
         if(featureX)
         {
-            return Ok(new List<string> { "some data", "more data", "loads of data" });
+            return Ok(new List<string> { "some data", "more data", _featureXService.GetFeatureString() });
         }
 
         return NotFound();

@@ -51,6 +51,13 @@ services.AddRazorPages().AddMvcOptions(options =>
 
 services.AddFeatureManagement();
 
+var featureXEnabled = configuration.GetValue<bool>("FeatureManagement:FeatureX");
+
+if(featureXEnabled)
+{
+    services.AddScoped<FeatureXService>();
+}
+
 var app = builder.Build();
 
 if (env.IsDevelopment())
