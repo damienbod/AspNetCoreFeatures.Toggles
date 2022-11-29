@@ -2,6 +2,8 @@
 
 [![.NET](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml)
 
+![Blazor Features](https://github.com/damienbod/AspNetCoreFeatures.Toggles/blob/main/images/featureMananagement_03.png)
+
 ## Links
 
 https://dev.to/karthikchintala/the-comprehensive-guide-to-feature-management-in-aspnet-core-23d1
