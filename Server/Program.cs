@@ -1,6 +1,7 @@
 ﻿using AspNetCoreFeatures.Toggles.Server;
 using AspNetCoreFeatures.Toggles.Server.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.FeatureManagement;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 
@@ -47,6 +48,8 @@ services.AddRazorPages().AddMvcOptions(options =>
     //    .Build();
     //options.Filters.Add(new AuthorizeFilter(policy));
 }).AddMicrosoftIdentityUI();
+
+services.AddFeatureManagement();
 
 var app = builder.Build();
 
