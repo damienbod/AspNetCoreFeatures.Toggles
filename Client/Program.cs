@@ -1,5 +1,6 @@
 ﻿using AspNetCoreFeatures.Toggles.Client;
 using AspNetCoreFeatures.Toggles.Client.Services;
+using Microsoft.FeatureManagement;
 
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -13,6 +14,8 @@ builder.Services.AddAuthorizationCore();
 builder.Services.TryAddSingleton<AuthenticationStateProvider, HostAuthenticationStateProvider>();
 builder.Services.TryAddSingleton(sp => (HostAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());
 builder.Services.AddTransient<AuthorizedHandler>();
+
+builder.Services.AddFeatureManagement();
 
 builder.RootComponents.Add<App>("#app");
 
