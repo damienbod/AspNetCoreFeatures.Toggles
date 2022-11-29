@@ -1,6 +1,9 @@
 ﻿@page "/featurexapi"
 @inject IAntiforgeryHttpClientFactory httpClientFactory
 @inject IJSRuntime JSRuntime
+@using Microsoft.FeatureManagement
+@using AspNetCoreFeatures.Toggles.Shared;
+@inject IFeatureManager _featureManager
 
 <h1>Data from Feature X API</h1>
 
@@ -30,10 +33,16 @@ else
 @code {
     private string[]? apiData;
 
+    public bool FeatureXEnabled { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        var client = await httpClientFactory.CreateClientAsync();
+        var featureX = await _featureManager.IsEnabledAsync(Features.FEATUREX);
 
-        apiData = await client.GetFromJsonAsync<string[]>("api/FeatureXApi");
+        if (featureX)
+        {
+            var client = await httpClientFactory.CreateClientAsync();
+            apiData = await client.GetFromJsonAsync<string[]>("api/FeatureXApi");
+        }
     }
 }
