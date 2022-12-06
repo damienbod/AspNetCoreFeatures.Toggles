@@ -2,7 +2,7 @@
 
 [![.NET](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreFeatures.Toggles/actions/workflows/dotnet.yml)
 
-[Implement Feature Management in Blazor ASP.NET Core](https://damienbod.com)
+[Implement Feature Management in Blazor ASP.NET Core](https://damienbod.com/2022/12/06/implement-feature-management-in-blazor-asp-net-core/)
 
 ![Blazor Features](https://github.com/damienbod/AspNetCoreFeatures.Toggles/blob/main/images/featureMananagement_03.png)
 
