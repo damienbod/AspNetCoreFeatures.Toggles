@@ -6,6 +6,10 @@
 
 ![Blazor Features](https://github.com/damienbod/AspNetCoreFeatures.Toggles/blob/main/images/featureMananagement_03.png)
 
+## History
+
+2023-02-10 Updated to .NET 7
+
 ## Links
 
 https://dev.to/karthikchintala/the-comprehensive-guide-to-feature-management-in-aspnet-core-23d1
