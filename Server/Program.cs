@@ -31,11 +31,11 @@ services.AddHttpClient();
 services.AddOptions();
 
 var scopes = configuration.GetValue<string>("DownstreamApi:Scopes");
-string[] initialScopes = scopes.Split(' ');
+string[] initialScopes = scopes!.Split(' ');
 
 services.AddMicrosoftIdentityWebAppAuthentication(configuration)
     .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-    .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", scopes)
+    .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", initialScopes)
     .AddInMemoryTokenCaches();
 
 services.AddControllersWithViews(options =>
