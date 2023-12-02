@@ -12,9 +12,9 @@
 		<PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="3.1.0" />
 		<PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.0" NoWarn="NU1605" />
-		<PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="2.15.5" />
-		<PackageReference Include="Microsoft.Identity.Web" Version="2.15.5" />
-		<PackageReference Include="Microsoft.Identity.Web.UI" Version="2.15.5" />
+		<PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="2.16.0" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="2.16.0" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="2.16.0" />
 		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.21.0" />
 	</ItemGroup>
 
