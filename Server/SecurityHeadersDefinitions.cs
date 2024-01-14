@@ -1,4 +1,4 @@
-﻿namespace Blazor.BFF.OpenIddict.Server;
+﻿namespace AspNetCoreFeatures.Toggles.Server;
 
 public static class SecurityHeadersDefinitions
 {
