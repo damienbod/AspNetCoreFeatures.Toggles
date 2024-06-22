@@ -8,6 +8,7 @@
 
 ## History
 
+- 2024-06-22 Updated packages
 - 2024-01-14 Improve security headers, use a nonce, updated packages
 - 2023-12-02 Fix graph photo streams
 - 2023-11-26 Updated .NET 8
