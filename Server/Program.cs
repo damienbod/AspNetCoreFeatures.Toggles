@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,13 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
+
+services.AddSecurityHeaderPolicies()
+    .SetPolicySelector((PolicySelectorContext ctx) =>
+    {
+        return SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
+            builder.Configuration["AzureAd:Instance"]!);
+    });
 
 services.AddScoped<MsGraphService>();
 services.AddScoped<CaeClaimsChallengeService>();
@@ -70,9 +78,7 @@ else
     app.UseExceptionHandler("/Error");
 }
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAd:Instance"]));
+app.UseSecurityHeaders();
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
@@ -85,12 +91,9 @@ app.UseNoUnauthorizedRedirect("/api");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapRazorPages();
-    endpoints.MapControllers();
-    endpoints.MapNotFound("/api/{**segment}");
-    endpoints.MapFallbackToPage("/_Host");
-});
+app.MapRazorPages();
+app.MapControllers();
+app.MapNotFound("/api/{**segment}");
+app.MapFallbackToPage("/_Host");
 
 app.Run();
